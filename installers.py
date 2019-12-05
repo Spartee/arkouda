@@ -40,7 +40,7 @@ def make_arkouda_server():
 
 def install_in_py_prefix():
     """Move the chpl compiled arkouda_server executable to the current python prefix"""
-    prefix_bin = sys.prefix.strip("..")
+    prefix_bin = os.path.join(sys.prefix, "bin")
     if os.path.isfile("arkouda_server"):
         shutil.move("arkouda_server", prefix_bin)
         print("Installing Arkouda server to " + prefix_bin)
